@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'capybara/rspec'
 require 'simplecov'
 require 'simplecov-console'
@@ -8,6 +10,5 @@ Capybara.app = Bookmarks
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console
-])
+  ])
 SimpleCov.start
-

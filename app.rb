@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'sinatra/base' # frozen_string_literal: true
 require 'sinatra/reloader'
 require_relative './lib/bookmark'
