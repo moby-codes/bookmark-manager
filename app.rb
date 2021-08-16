@@ -1,16 +1,24 @@
 require 'sinatra/base' # frozen_string_literal: true
 require 'sinatra/reloader'
 
-
+# enabling Sinatra Base in bookmarks
 class Bookmarks < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
 
   get '/' do
-    'Hello World'
+    erb :index
   end
 
-  
-  run! if app_file == $0
+  post '/bookmarks' do
+    redirect '/bookmarks'
+  end
+
+  get '/bookmarks' do
+    erb :bookmarks
+  end
+
+
+  run! if app_file == $PROGRAM_NAME
 end
