@@ -1,5 +1,6 @@
 require 'sinatra/base' # frozen_string_literal: true
 require 'sinatra/reloader'
+require_relative './lib/bookmark'
 
 # enabling Sinatra Base in bookmarks
 class Bookmarks < Sinatra::Base
@@ -16,6 +17,7 @@ class Bookmarks < Sinatra::Base
   end
 
   get '/bookmarks' do
+    @bm = Bookmark.all
     erb :bookmarks
   end
 
