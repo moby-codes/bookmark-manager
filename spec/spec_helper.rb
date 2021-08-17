@@ -6,7 +6,7 @@ require 'simplecov-console'
 require_relative '../app.rb'
 require_relative './setup_test_database'
 
-ENV['RACK_ENV'] = 'test'
+ENV['ENVIROMENT'] = 'test'
 
 Capybara.app = Bookmarks
 
