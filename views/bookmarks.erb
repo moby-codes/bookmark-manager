@@ -1,3 +1,6 @@
 <h1>See your list of bookmarks below</h1>
 
-<%= @bm %>
+<% @bm.each do |bookmark| %>
+  <%= bookmark %>
+  <br>
+<% end %>

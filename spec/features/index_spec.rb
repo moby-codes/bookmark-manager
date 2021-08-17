@@ -18,13 +18,8 @@ feature 'user can click link to their bookmarks' do
   scenario 'user should be able to see all bookmarks' do
     visit '/'
     click_button('View')
-
-    expect(page).to have_content 'https://www.google.com'
+    expect(page).to have_content 'http://www.yahoo.com'
+    expect(page).to have_content 'http://www.google.com'
   end
 
-  scenario 'user should be able to see all bookmarks' do
-    visit '/'
-    click_button('View')
-    expect(page).to have_content 'https://www.yahoo.com'
-  end
 end
