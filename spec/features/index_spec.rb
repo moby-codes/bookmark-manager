@@ -20,6 +20,7 @@ feature 'user can click link to their bookmarks' do
     click_button('View')
     expect(page).to have_content 'http://www.yahoo.com'
     expect(page).to have_content 'http://www.google.com'
+    expect(page).to have_content 'http://www.makersacademy.com/'
   end
 
 end
