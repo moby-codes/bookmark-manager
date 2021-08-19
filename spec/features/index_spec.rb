@@ -27,4 +27,26 @@ feature 'user can click link to their bookmarks' do
     expect(page).to have_content 'http://www.makersacademy.com/'
   end
 
+  feature 'So the user can add a new bookmark' do
+    scenario 'I would like to view an add button' do      
+      visit '/'
+      expect(page).to have_button('Add bookmark')
+    end
+    
+    scenario 'after I click add bookmark, I should be allowed to enter a bookmark' do
+      visit '/'
+      click_button 'Add bookmark'
+      expect(page).to have_field('add_bookmark')
+    end
+
+    scenario 'After adding a new bookmark, i should be able to view the new bookmark' do
+      visit '/'
+      click_button 'Add bookmark'
+      fill_in('add_bookmark', with: 'www.yahoo.com')
+      click_button 'Save'
+      expect(page).to have_content 'www.yahoo.com'
+    end
+
+  end
+    
 end

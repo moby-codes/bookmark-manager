@@ -23,6 +23,15 @@ class Bookmarks < Sinatra::Base
     erb :bookmarks
   end
 
+  get '/add_bookmarks' do
+    erb :add_bookmarks
+  end
+
+  post '/add_bookmarks' do
+    redirect '/add_bookmarks'
+    erb :add_bookmarks
+  end
+
 
   run! if app_file == $PROGRAM_NAME
 end
