@@ -28,7 +28,7 @@ class Bookmarks < Sinatra::Base
   end
 
   post '/add_bookmarks' do
-    redirect '/add_bookmarks'
+    #  redirect '/bookmarks'
     erb :add_bookmarks
   end
 
