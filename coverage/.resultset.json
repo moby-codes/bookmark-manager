@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/moby-codes/Projects/week4/bookmark-manager/spec/features/index_spec.rb": {
+      "/Users/blessingubogu/Projects/bookmark-manager/spec/features/index_spec.rb": {
         "lines": [
           null,
           null,
@@ -48,8 +48,11 @@
           1,
           1,
           1,
-          0,
-          0,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           null,
           null,
@@ -57,7 +60,7 @@
           null
         ]
       },
-      "/Users/moby-codes/Projects/week4/bookmark-manager/spec/unit/bookmark_spec.rb": {
+      "/Users/blessingubogu/Projects/bookmark-manager/spec/unit/bookmark_spec.rb": {
         "lines": [
           1,
           null,
@@ -85,6 +88,6 @@
         ]
       }
     },
-    "timestamp": 1629388844
+    "timestamp": 1629393221
   }
 }

@@ -40,11 +40,14 @@ feature 'user can click link to their bookmarks' do
     end
 
     scenario 'After adding a new bookmark, i should be able to view the new bookmark' do
+    connection = PG.connect(dbname: 'bookmark_manager_test')
+    connection.exec("INSERT INTO bookmarks (url) VALUES ('www.yahoo.com');")
       visit '/'
       click_button 'Add bookmark'
       fill_in('add_bookmark', with: 'www.yahoo.com')
       click_button 'Save'
-      expect(page).to have_content 'www.yahoo.com'
+      click_button 'View Bookmarks'
+      expect(page).to have_content('www.yahoo.com')
     end
 
   end
