@@ -14,22 +14,24 @@ class Bookmarks < Sinatra::Base
     erb :index
   end
 
-  post '/bookmarks' do
-    redirect '/bookmarks'
-  end
-
   get '/bookmarks' do
     @bm = Bookmark.all
     erb :bookmarks
   end
 
+  post '/bookmarks' do
+   redirect 'bookmarks'
+  end
+
   get '/add_bookmarks' do
+    redirect '/'
     erb :add_bookmarks
   end
 
   post '/add_bookmarks' do
-    #  redirect '/bookmarks'
+    Bookmark.create(url: params[:add_bookmark])
     erb :add_bookmarks
+    #redirect '/bookmarks'
   end
 
 
