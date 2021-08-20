@@ -17,15 +17,22 @@ feature 'user can click link to their bookmarks' do
 
   scenario 'user should be able to see all bookmarks' do
     connection = PG.connect(dbname: 'bookmark_manager_test')
-    connection.exec("INSERT INTO bookmarks (url) VALUES ('http://www.makersacademy.com/');")
-    connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.destroyallsoftware.com');")
-    connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.google.com');")
+    connection.exec("INSERT INTO bookmarks (url, title) VALUES ('http://www.makersacademy.com/', 'MA');")
+    connection.exec("INSERT INTO bookmarks (url, title) VALUES('http://www.destroyallsoftware.com', 'Destroy All software');")
+    connection.exec("INSERT INTO bookmarks (url, title) VALUES('http://www.google.com', 'google');")
 
     visit '/bookmarks'
-    expect(page).to have_content 'http://www.destroyallsoftware.com'
-    expect(page).to have_content 'http://www.google.com'
-    expect(page).to have_content 'http://www.makersacademy.com/'
+    expect(page).to have_content 'MA'
+    expect(page).to have_content 'Destroy All software'
+    expect(page).to have_content 'google'
   end
+
+  scenario 'the user should be able to click on title to naviagte to website' do
+    visit '/bookmarks'
+    click_link 'MA'
+  end
+    
+    
 
   feature 'So the user can add a new bookmark' do
     scenario 'I would like to view an add button' do      
@@ -48,6 +55,15 @@ feature 'user can click link to their bookmarks' do
       click_button 'Save'
       click_button 'View Bookmarks'
       expect(page).to have_content('www.yahoo.com')
+    end
+
+    scenario 'The user should be able to add a title for the bookmark' do
+      visit '/'
+      click_button 'Add bookmark'
+      fill_in('title', with: 'google')
+      click_button 'Save'
+      click_button 'View Bookmarks'
+      expect(page).to have_content('google')
     end
 
   end
