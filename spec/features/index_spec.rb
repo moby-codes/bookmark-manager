@@ -65,6 +65,11 @@ feature 'user can click link to their bookmarks' do
       click_button 'View Bookmarks'
       expect(page).to have_content('google')
     end
+    scenario 'The page has a form' do
+      visit '/'
+      click_button 'Add bookmark'
+      expect(page).to have_field('title')
+    end
 
   end
     

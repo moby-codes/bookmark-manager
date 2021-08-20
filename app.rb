@@ -29,7 +29,7 @@ class Bookmarks < Sinatra::Base
   end
 
   post '/add_bookmarks' do
-    Bookmark.create(url: params[:add_bookmark])
+    Bookmark.create(url: params[:add_bookmark],title: params[:title])
     erb :add_bookmarks
     #redirect '/bookmarks'
   end
